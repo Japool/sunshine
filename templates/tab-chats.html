@@ -1,0 +1,34 @@
+<ion-view view-title="Sunshine">
+  <ion-content>
+  <div>
+    <img ng-src="http://openweathermap.org/img/w/10d.png" style="width: 150px; height: 150px">
+    <h1>Minima: {{aldia.temp_min}}ºC/ Maxima: {{aldia.temp_max}}º</h1>
+    <h1>Presion: {{aldia.pressure}}</h1>
+    <h1>Humedad: {{aldia.humidity}}</h1>
+    
+    <h1></h1>   
+  </div>
+    <ion-list>
+    <!--Lista de hoy-->
+
+    <!--Fin lista de hoy-->
+
+    <!--Lista de la semana-->
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.$$hashKey}}">
+        <img ng-src="http://openweathermap.org/img/w/{{chat.weather[0].icon}}.png">
+        <h2>{{chat.dt}}</h2>
+        <p>{{chat.main.temp_min}}{{chat.main.temp_max}}º</p>
+        <h2>{{chat.main.pressure}}</h2>
+        <h2>{{chat.main.sea_level}}</h2>
+        <h1>{{chat.weather[0].description}}</h1>
+        <h1>{{chat.dt_txt}}</h1>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+      <!--Fin lista de la semana-->
+    </ion-list>
+  </ion-content>
+</ion-view>

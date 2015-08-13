@@ -1,0 +1,45 @@
+<!--
+  This template loads for the 'tab.friend-detail' state (app.js)
+  'friend' is a $scope variable created in the FriendsCtrl controller (controllers.js)
+  The FriendsCtrl pulls data from the Friends service (service.js)
+  The Friends service returns an array of friend data
+-->
+<ion-view view-title="{{chat.dt*1000 | date}}">
+  <ion-content class="padding">
+    <img ng-src="http://openweathermap.org/img/w/{{chat.weather[0].icon}}.png" style="width: 150px; height: 150px">
+    <p>
+      <h2>
+      {{chat.weather[0].main}}
+      </h2>
+    </p>
+    <p>
+      <h2>
+      {{chat.temp.min}}º/{{chat.temp.max}}º
+      </h2>
+    </p>
+    <p>
+      <h2>
+      {{chat.weather[0].description}}
+      </h2>
+    </p>
+
+    <ion-list>
+    <!--Lista de hoy-->
+
+    <!--Fin lista de hoy-->
+
+    <!--Lista de la semana-->
+      <ion-item class="item-remove-animate item-avatar item-icon-right" ng-repeat="chat in chats" type="item-text-wrap" href="#/tab/chats/{{chat.$$hashKey}}">
+        <img ng-src="http://openweathermap.org/img/w/{{chat.weather[0].icon}}.png">
+        <h2>{{chat.dt*1000 | date}}</h2>
+        <p>{{chat.temp.min}}º/{{chat.temp.max}}º</p>
+        <i class="icon ion-chevron-right icon-accessory"></i>
+
+        <ion-option-button class="button-assertive" ng-click="remove(chat)">
+          Delete
+        </ion-option-button>
+      </ion-item>
+      <!--Fin lista de la semana-->
+    </ion-list>
+  </ion-content>
+</ion-view>
